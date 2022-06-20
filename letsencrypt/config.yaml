@@ -1,5 +1,5 @@
 ---
-version: 4.12.2
+version: 4.12.7
 slug: letsencrypt
 name: Let's Encrypt
 description: Manage certificate from Let's Encrypt
@@ -38,6 +38,7 @@ schema:
   dns:
     aws_access_key_id: str?
     aws_secret_access_key: str?
+    azure_config: str?
     cloudflare_api_key: str?
     cloudflare_api_token: str?
     cloudflare_email: email?
@@ -55,6 +56,7 @@ schema:
     gehirn_api_secret: str?
     gehirn_api_token: str?
     google_creds: str?
+    hetzner_api_token: str?
     linode_key: str?
     linode_version: str?
     luadns_email: email?
@@ -69,9 +71,9 @@ schema:
     ovh_consumer_key: str?
     ovh_endpoint: str?
     propagation_seconds: int(60,3600)?
-    provider: "list(dns-cloudflare|dns-cloudxns|dns-digitalocean|\
+    provider: "list(dns-azure|dns-cloudflare|dns-cloudxns|dns-digitalocean|\
       dns-directadmin|dns-dnsimple|dns-dnsmadeeasy|dns-gehirn|\
-      dns-google|dns-linode|dns-luadns|dns-njalla|dns-nsone|dns-ovh|\
+      dns-google|dns-hetzner|dns-linode|dns-luadns|dns-njalla|dns-nsone|dns-ovh|\
       dns-rfc2136|dns-route53|dns-sakuracloud|dns-netcup|dns-gandi|\
       dns-transip)?"
     rfc2136_algorithm: str?

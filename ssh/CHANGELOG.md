@@ -1,5 +1,21 @@
 # Changelog
 
+## 9.6.1
+
+- Upgrade Home Assistant CLI to 4.21.0
+
+## 9.6.0
+
+**Breaking change**: RSA keys generated using the SHA-1 hash algorithm
+were disabled by OpenSSH due to a security vulnerability. If you find
+your RSA key does not work after update you will need to make a new key
+with a stronger algorithm or switch to an ECDSA or Ed25519 type key. For
+more information see [OpenSSH v8.8 release notes](https://www.openssh.com/releasenotes.html).
+
+- Upgrade Home Assistant CLI to 4.18.0
+- Upgrade to Alpine 3.16
+- Refactor out usage of fix-attrs for s6 v3
+
 ## 9.4.0
 
 - Upgrade Home Assistant CLI to 4.17.0
@@ -21,7 +37,7 @@
 ## 9.2.0
 
 - Upgrade to Alpine 3.14
-- Make Bash promt more colorful
+- Make Bash prompt more colorful
 - Upgrade Home Assistant CLI to 4.13.0
 
 ## 9.1.3

@@ -1,5 +1,64 @@
 # Changelog
 
+## 0.1.74
+
+- [Bump Z-Wave JS Server to 1.24.0](https://github.com/zwave-js/zwave-js-server/releases/tag/1.24.0)
+- [Bump Z-Wave JS to 10.3.0](https://github.com/zwave-js/node-zwave-js/releases/tag/v10.3.0)
+
+## 0.1.73
+
+- [Bump Z-Wave JS Server to 1.23.1](https://github.com/zwave-js/zwave-js-server/releases/tag/1.23.1)
+- [Bump Z-Wave JS to 10.2.0](https://github.com/zwave-js/node-zwave-js/releases/tag/v10.2.0)
+- Bump Z-Wave JS to test build to try to address memory leak
+- Revert to default base image
+
+## 0.1.72
+
+- Use same base image as community add-on zwave-js-ui
+
+## 0.1.71
+
+- [Bump Z-Wave JS to 10.1.0](https://github.com/zwave-js/node-zwave-js/releases/tag/v10.1.0)
+
+## 0.1.70
+
+- [Bump Z-Wave JS to 10.0.4](https://github.com/zwave-js/node-zwave-js/releases/tag/v10.0.4)
+
+## 0.1.69
+
+- Use edge version of NodeJS (16.17.0)
+- Bump Alpine to 3.16
+
+## 0.1.68
+
+- [Bump Z-Wave JS to 10.0.3](https://github.com/zwave-js/node-zwave-js/releases/tag/v10.0.3)
+
+## 0.1.67
+
+- [Bump Z-Wave JS to 10.0.2](https://github.com/zwave-js/node-zwave-js/releases/tag/v10.0.2)
+
+## 0.1.66
+
+- Bump Z-Wave JS Server to 1.22.1
+- Bump Z-Wave JS to 10.0.1
+
+## 0.1.65
+
+- Bump Z-Wave JS Server to 1.21.0
+- Bump Z-Wave JS to 9.6.2
+
+## 0.1.64
+
+- Fix finish script for S6 V3
+
+## 0.1.63
+
+- Bump Z-Wave JS Server to 1.20.0
+
+## 0.1.62
+
+- Bump Z-Wave JS Server to 1.19.0
+
 ## 0.1.61
 
 - Bump Z-Wave JS to 9.4.0
@@ -276,4 +335,4 @@
 
 ## 0.1.0
 
-- Inital release
+- Initial release

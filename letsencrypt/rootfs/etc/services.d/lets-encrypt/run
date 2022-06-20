@@ -21,7 +21,7 @@ if [ "${CHALLENGE}" == "dns" ]; then
 
     PROPAGATION_SECONDS=60
     if bashio::config.exists 'dns.propagation_seconds'; then
-        PROPAGATION_SECONDS="$(bashio::config 'dns.propagation_seconds')" 
+        PROPAGATION_SECONDS="$(bashio::config 'dns.propagation_seconds')"
     fi
     bashio::log.info "Use propagation seconds: ${PROPAGATION_SECONDS}"
 else
@@ -91,10 +91,33 @@ elif [ "${DNS_PROVIDER}" == "dns-gandi" ]; then
     fi
     PROVIDER_ARGUMENTS+=("--authenticator" "certbot-plugin-gandi:dns" "--certbot-plugin-gandi:dns-credentials" /data/dnsapikey)
 
+# Hetzner
+elif [ "${CHALLENGE}" == "dns" ] && [ "${DNS_PROVIDER}" == "dns-hetzner" ]; then
+    bashio::config.require 'dns.hetzner_api_token'
+    PROVIDER_ARGUMENTS+=("--authenticator" "dns-hetzner" "--dns-hetzner-credentials" /data/dnsapikey "--dns-hetzner-propagation-seconds" "${PROPAGATION_SECONDS}")
+
 # Njalla
 elif [ "${CHALLENGE}" == "dns" ] && [ "${DNS_PROVIDER}" == "dns-njalla" ]; then
     bashio::config.require 'dns.njalla_token'
     PROVIDER_ARGUMENTS+=("--authenticator" "certbot-dns-njalla:dns-njalla" "--certbot-dns-njalla:dns-njalla-credentials" /data/dnsapikey "--certbot-dns-njalla:dns-njalla-propagation-seconds" "${PROPAGATION_SECONDS}")
+
+# rfc2136
+elif [ "${CHALLENGE}" == "dns" ] && [ "${DNS_PROVIDER}" == "dns-rfc2136" ]; then
+    PROVIDER_ARGUMENTS+=("--${DNS_PROVIDER}" "--${DNS_PROVIDER}-credentials" /data/dnsapikey "--dns-rfc2136-propagation-seconds" "${PROPAGATION_SECONDS}")
+
+# Azure
+elif [ "${CHALLENGE}" == "dns" ] && [ "${DNS_PROVIDER}" == "dns-azure" ]; then
+    bashio::config.require 'dns.azure_config'
+    AZURE_CREDS="$(bashio::config 'dns.azure_config')"
+
+    export AZURE_CREDS
+    if [ -f "/share/${AZURE_CREDS}" ]; then
+      cp -f "/share/${AZURE_CREDS}" "/data/azure_creds"
+      chmod 600 "/data/azure_creds"
+    else
+      bashio::log.info "Azure credentials file doesn't exist in folder share."
+    fi
+    PROVIDER_ARGUMENTS+=("--authenticator" "${DNS_PROVIDER}" "--${DNS_PROVIDER}-config" "/data/azure_creds")
 
 #All others
 else
