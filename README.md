@@ -12,7 +12,7 @@ Matter (formerly known as Connected Home over IP or CHIP) is an IPv6 based smart
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 
-## Example configuration
+## How to run
 **docker-compose**
 
 ```yaml
