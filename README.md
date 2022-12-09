@@ -20,7 +20,7 @@ Matter (formerly known as Connected Home over IP or CHIP) is an IPv6 based smart
     image: tediore/matter-server:amd64 # or aarch64 depending on your host platform
     container_name: matter-server
     volumes:
-    - /etc/matter-server/root:/root/.matter_server # replace /etc/matter-server with whatever path you want
+    - /etc/matter-server/root:/root # replace /etc/matter-server with whatever path you want
     - /etc/matter-server/data:/data # ditto
     restart: unless-stopped
     network_mode: host
