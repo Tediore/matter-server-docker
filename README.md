@@ -23,5 +23,5 @@ Matter (formerly known as Connected Home over IP or CHIP) is an IPv6 based smart
     - /etc/matter-server/root:/root/.matter_server # replace /etc/matter-server with whatever path you want
     - /etc/matter-server/data:/data # ditto
     restart: unless-stopped
-    network-mode: host
+    network_mode: host
 ```
