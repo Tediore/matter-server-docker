@@ -46,3 +46,9 @@ Matter (formerly known as Connected Home over IP or CHIP) is an IPv6 based smart
     restart: unless-stopped
     network_mode: host
 ```
+
+If you don't wish to maintain this fork with the latest version of the from the home-assistant repo, you can also replace the `image` in the docker-compose with one of the following, dependent on your architecture:
+ - aarch64: `homeassistant/aarch64-addon-matter-server`
+ - amd64: `homeassistant/amd64-addon-matter-server`
+
+It's worth while noting images created by the Dockerfile in this repo, including these published images, require [Home Assistant Supervisor](https://www.home-assistant.io/docs/glossary/#home-assistant-supervisor), which comes with either [Home Assistant OS](https://www.home-assistant.io/docs/glossary/#home-assistant-operating-system), or [Home Assistant Supervised](https://github.com/home-assistant/supervised-installer), and are otherwise unsupported. If you wish to use with another installation method, Home Assistant's current recommendation is to use the Dockerfile in [home-assistant-libs/python-matter-server](https://github.com/home-assistant-libs/python-matter-server) (see [#128](https://github.com/home-assistant-libs/python-matter-server/issues/128#issuecomment-1349138522) and [#183](https://github.com/home-assistant-libs/python-matter-server/pull/183)) 
